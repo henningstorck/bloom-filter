@@ -36,4 +36,14 @@ class BloomFilterTest {
 		assertFalse(bloomFilter.contains("Zeus"));
 		assertFalse(bloomFilter.contains("Hermes"));
 	}
+
+	@Test
+	void testFalsePositive() {
+		bloomFilter = BloomFilter.forStrings(16, 4);
+		bloomFilter.add("Zeus");
+		bloomFilter.add("Hera");
+		bloomFilter.add("Artemis");
+		assertTrue(bloomFilter.contains("Zeus"));
+		assertTrue(bloomFilter.contains("Hermes"));
+	}
 }
