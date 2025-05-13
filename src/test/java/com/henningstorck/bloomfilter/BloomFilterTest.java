@@ -11,7 +11,7 @@ class BloomFilterTest {
 
 	@BeforeEach
 	void setUp() {
-		bloomFilter = new BloomFilter<>(16);
+		bloomFilter = new BloomFilter<>(16, 2, (value, i) -> value + i);
 		bloomFilter.add("Zeus");
 		bloomFilter.add("Hera");
 		bloomFilter.add("Artemis");
