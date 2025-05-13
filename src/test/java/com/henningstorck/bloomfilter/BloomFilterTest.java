@@ -29,4 +29,11 @@ class BloomFilterTest {
 		assertTrue(bloomFilter.contains("Zeus"));
 		assertTrue(bloomFilter.contains("Hermes"));
 	}
+
+	@Test
+	void testRemove() {
+		bloomFilter.remove("Zeus");
+		assertFalse(bloomFilter.contains("Zeus"));
+		assertFalse(bloomFilter.contains("Hermes"));
+	}
 }
