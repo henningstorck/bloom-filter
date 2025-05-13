@@ -15,6 +15,10 @@ public class BloomFilter<T> {
 		this.mutate = mutate;
 	}
 
+	public static BloomFilter<String> forStrings(int size, int rounds) {
+		return new BloomFilter<>(size, rounds, (value, i) -> value + i);
+	}
+
 	public void add(T value) {
 		for (int i = 0; i < rounds; i++) {
 			T mutatedValue = mutate.apply(value, i);
